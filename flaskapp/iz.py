@@ -103,20 +103,9 @@ def draw1(filename,cho):
  output_filename = filename
  img.save(output_filename)
  
- ##делаем график 2
- fig = plt.figure(figsize=(6, 4))
- ax = fig.add_subplot()
- data = np.random.randint(0, 255, (100, 100))
- ax.imshow(img, cmap='plasma')
- b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
- fig.colorbar(b, ax=ax)
- gr_path1 = "./static/newgr1.png"
- sns.displot(data)
- #plt.show()
- plt.savefig(gr_path1)
- plt.close()
+
  
- return output_filename,gr_path,gr_path1
+ return output_filename,gr_path
 
 
 
@@ -137,12 +126,12 @@ def net():
   ch=form.cho.data
  
   form.upload.data.save(filename)
-  newfilename,grname,grname1 = draw1(filename,ch)
+  newfilename,grname = draw1(filename,ch)
   
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
- return render_template('net.html',form=form,image_name=newfilename,gr_name=grname,gr_name1=grname1)
+ return render_template('net.html',form=form,image_name=newfilename,gr_name=grname)
 
 
 if __name__ == "__main__":
