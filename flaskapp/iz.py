@@ -76,8 +76,8 @@ def draw(filename,cho):
  #plt.show()
  plt.savefig(gr_path)
  plt.close()
-
-
+ 
+ 
 ##меняем половинки
  for i in range(width):
   for j in range(height):
@@ -98,9 +98,9 @@ def draw(filename,cho):
    if (c > 255):
     c = 255
    draw.point((i, j), (a, b, c))
-	
-  output_filename = filename
-  img.save(output_filename)
+  	
+ output_filename = filename
+ img.save(output_filename)
  return output_filename,gr_path
 
 
