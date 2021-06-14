@@ -103,11 +103,11 @@ def draw1(filename,cho):
  output_filename = filename
  img.save(output_filename)
  
- ##делаем график
+ ##делаем график 2
  fig = plt.figure(figsize=(6, 4))
  ax = fig.add_subplot()
  data = np.random.randint(0, 255, (100, 100))
- ax.imshow(output_filename, cmap='plasma')
+ ax.imshow(img, cmap='plasma')
  b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
  fig.colorbar(b, ax=ax)
  gr_path1 = "./static/newgr1.png"
