@@ -55,20 +55,11 @@ import seaborn as sns
 
 ## функция для оброботки изображения 
 def draw(filename,cho):
-	"""
- ##открываем изображение 
- print(filename)
- img= Image.open(filename)
- width = img.size[0] #Определяем ширину. 
- height = img.size[1] #Определяем высоту. 
- pix = img.load() #Выгружаем значения пикселей.
- cho=int(cho)
- """
-	 ##открываем изображение 
+##открываем изображение 
  print(filename)
  img= Image.open(filename)
  x, y = img.size
- cho=int(cho
+ cho=int(cho)
 	 
 ##делаем график
  fig = plt.figure(figsize=(6, 4))
@@ -83,33 +74,7 @@ def draw(filename,cho):
  plt.savefig(gr_path)
  plt.close()
 
-"""
-##меняем половинки
- for i in range(width):
- 	for j in range(height):
- 		 rand = random.randint(-cho, cho)
-		 a = pix[i, j][0] + rand
-		 b = pix[i, j][1] + rand
-		 c = pix[i, j][2] + rand
-		 if (a < 0):
-		 	 a = 0
-		 if (b < 0):
-			 b = 0
-	 	 if (c < 0):
-			 c = 0
-		 if (a > 255):
-			 a = 255
-		 if (b > 255):
-			 b = 255
-		 if (c > 255):
-			 c = 255
-		 draw.point((i, j), (a, b, c))
-			 
-  output_filename = filename
-  img.save(output_filename)
- 
- return output_filename,gr_path
-"""
+
 ##меняем половинки
  if cho==1: 
   a = img.crop((0, 0, int(y * 0.5), x))
