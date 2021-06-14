@@ -34,7 +34,7 @@ class NetForm(FlaskForm):
  cho = StringField('Введите уровень зашумления', validators = [DataRequired()])
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
- upload = FileField('Load image', validators=[
+ upload = FileField('Загрузить картинку', validators=[
  FileRequired(),
  FileAllowed(['jpg', 'png', 'jpeg'], 'Images only!')])
  # поле формы с capture
@@ -63,7 +63,6 @@ def draw1(filename,cho):
  width = img.size[0] #Определяем ширину. 
  height = img.size[1] #Определяем высоту. 
  pix = img.load() #Выгружаем значения пикселей.
- x, y = img.size
  cho=int(cho)
 	 
 ##делаем график
@@ -104,6 +103,11 @@ def draw1(filename,cho):
  output_filename = filename
  img.save(output_filename)
 	
+ 
+ return output_filename,gr_path
+
+def grname2():
+ img= Image.open(output_filename)
  ##делаем график
  fig = plt.figure(figsize=(6, 4))
  ax = fig.add_subplot()
@@ -111,13 +115,13 @@ def draw1(filename,cho):
  ax.imshow(img, cmap='plasma')
  b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
  fig.colorbar(b, ax=ax)
- gr_path = "./static/newgr.png"
+ gr_path = "./static/newgr1.png"
  sns.displot(data)
  #plt.show()
  plt.savefig(gr_path)
  plt.close()
- return output_filename,gr_path
-
+	
+ return gr_path
 
 # метод обработки запроса GET и POST от клиента
 @app.route("/net",methods=['GET', 'POST'])
@@ -128,6 +132,7 @@ def net():
  filename=None
  newfilename=None
  grname=None
+ grname1=None
  # проверяем нажатие сабмит и валидацию введенных данных
  if form.validate_on_submit():
   # файлы с изображениями читаются из каталога static
@@ -136,10 +141,11 @@ def net():
  
   form.upload.data.save(filename)
   newfilename,grname = draw1(filename,ch)
+  newfilename,grname1 = draw2(output_filename)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
- return render_template('net.html',form=form,image_name=newfilename,gr_name=grname)
+ return render_template('net.html',form=form,image_name=newfilename,gr_name=grname,gr_name1=grname1)
 
 
 if __name__ == "__main__":
