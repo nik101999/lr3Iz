@@ -47,6 +47,7 @@ class NetForm(FlaskForm):
 from werkzeug.utils import secure_filename
 import os
 
+import random
 import numpy as np
 from PIL import Image, ImageDraw
 import matplotlib.pyplot as plt
