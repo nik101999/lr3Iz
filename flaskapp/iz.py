@@ -54,6 +54,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 ## функция для оброботки изображения 
+draw = ImageDraw.Draw(image) #Создаем инструмент для рисования.
 def draw1(filename,cho):
 ##открываем изображение 
  print(filename)
