@@ -75,7 +75,7 @@ def draw(filename,cho):
  plt.savefig(gr_path)
  plt.close()
 
-
+"""
 ##меняем половинки
  factor = cho
  	 for i in range(width):
@@ -101,7 +101,7 @@ def draw(filename,cho):
 	   img.save(output_filename)
  
  return output_filename,gr_path
-
+"""
 
 
 # метод обработки запроса GET и POST от клиента
