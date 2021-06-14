@@ -55,6 +55,7 @@ import seaborn as sns
 
 ## функция для оброботки изображения 
 def draw(filename,cho):
+	"""
  ##открываем изображение 
  print(filename)
  img= Image.open(filename)
@@ -62,7 +63,13 @@ def draw(filename,cho):
  height = img.size[1] #Определяем высоту. 
  pix = img.load() #Выгружаем значения пикселей.
  cho=int(cho)
- 
+ """
+	 ##открываем изображение 
+ print(filename)
+ img= Image.open(filename)
+ x, y = img.size
+ cho=int(cho
+	 
 ##делаем график
  fig = plt.figure(figsize=(6, 4))
  ax = fig.add_subplot()
