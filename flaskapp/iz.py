@@ -141,7 +141,7 @@ def net():
  
   form.upload.data.save(filename)
   newfilename,grname = draw1(filename,ch)
-  newfilename,grname1 = draw2(output_filename)
+  newfilename,grname1 = draw2(filename)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
