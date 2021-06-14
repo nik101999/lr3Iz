@@ -54,11 +54,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 ## функция для оброботки изображения 
-draw = ImageDraw.Draw(image) #Создаем инструмент для рисования.
+
 def draw1(filename,cho):
 ##открываем изображение 
  print(filename)
  img= Image.open(filename)
+ draw = ImageDraw.Draw(img) #Создаем инструмент для рисования.
  width = img.size[0] #Определяем ширину. 
  height = img.size[1] #Определяем высоту. 
  pix = img.load() #Выгружаем значения пикселей.
