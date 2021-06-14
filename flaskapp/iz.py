@@ -118,10 +118,10 @@ def draw2():
  gr_path = "./static/newgr1.png"
  sns.displot(data)
  #plt.show()
- plt.savefig(gr_path)
+ plt.savefig(gr_path1)
  plt.close()
 	
- return gr_path
+ return gr_path1
 
 # метод обработки запроса GET и POST от клиента
 @app.route("/net",methods=['GET', 'POST'])
