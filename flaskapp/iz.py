@@ -101,7 +101,7 @@ def draw(filename,cho):
 	
   output_filename = filename
   img.save(output_filename)
-return output_filename,gr_path
+ return output_filename,gr_path
 
 
 # метод обработки запроса GET и POST от клиента
