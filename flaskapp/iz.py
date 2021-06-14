@@ -106,8 +106,8 @@ def draw1(filename,cho):
  
  return output_filename,gr_path
 
-def draw2():
- img= Image.open(output_filename)
+def draw2(filename):
+ img= Image.open(filename)
  ##делаем график
  fig = plt.figure(figsize=(6, 4))
  ax = fig.add_subplot()
