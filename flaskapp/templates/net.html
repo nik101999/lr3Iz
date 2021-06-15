@@ -6,32 +6,59 @@
 {% block content %}
 {{ wtf.quick_form(form, method='post',enctype="multipart/form-data", action="net") }}
 <!-- один из стандартных тэгов html - заголовок второго уровня -->
-<h2>График: </h2> 
-<!-- проверяем есть ли данные классификации -->
-{% if gr_name %}
- <p>{{gr_name}}
- <p><img src={{gr_name}}/>
-{% else %}
- <p> There is no image yet </p>
-{% endif %}
 
-<h2>Картинка: </h2>
-<!-- отображаем загруженное изображение с закругленными углами -->
-<!-- если оно есть (после submit) -->
-{% if image_name %}
- <p>{{image_name}}
- <p><img src={{image_name}}/>
-{% else %}
- <p> There is no image yet </p>
-{% endif %}
+
+<table>
+    <tr>
+    <th>
+        
+        <!-- отображаем загруженное изображение с закругленными углами -->
+        <!-- если оно есть (после submit) -->
+        {% if image_name %}
+
+         <p><img src={{image_name1}}/>
+
+        {% endif %}</th>
+
+    <th>
+        
+        <!-- отображаем загруженное изображение с закругленными углами -->
+        <!-- если оно есть (после submit) -->
+        {% if image_name %}
+
+         <p><img src={{image_name}}/>
+
+        {% endif %}</th>
+        
+    </th>
+    <th>
+                <!-- отображаем загруженное изображение с закругленными углами -->
+        <!-- если оно есть (после submit) -->
+        {% if image_name %}
+
+         <p><img src={{image_name2}}/>
+
+        {% endif %}</th>
+        
+    </th>
+  
+    </tr>
+    <tr>
+        <td>Картинка до шума: </td>
+        <td>Картинка после шума: </td>
+        <td>Картинка после сглаживания: </td>
+        </tr>
+        
+    </table>
+    <td><h2>График: </h2> 
+        <!-- проверяем есть ли данные классификации -->
+        {% if gr_name %}
+         <p>{{gr_name}}
+         <p><img src={{gr_name}}/>
+        
+        {% endif %}</td>
+
 {% endblock %}
-<h2>График после: </h2> 
-<!-- проверяем есть ли данные классификации -->
-{% if gr_name %}
- <p>{{gr_name}}
- <p><img src={{gr_name1}}/>
-{% else %}
- <p> There is no image yet </p>
-{% endif %}
+
 
 
